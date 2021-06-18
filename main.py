@@ -9,8 +9,7 @@ from pyzbar.pyzbar import ZBarSymbol
 #2.
 #pip install pyzbar
 
-
-img = cv2.imread('fotos/qr28.jpg')
+img = cv2.imread('fotos/qr27.jpg')
 
 # print(dir(decode(img)))
 code1 = ''
@@ -20,7 +19,6 @@ for code in decode(img,symbols=[ZBarSymbol.QRCODE]):
     code1 = code.data.decode('utf-8')
     print(code1)
     print(type(code1))
-
 
 # # image = cv2.imread('qr12.jpg')
 image = img
@@ -35,7 +33,6 @@ code_blue = decode((image[:, :, 0].astype('uint8').tobytes(), width, height),sym
 grey = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 code_grey = decode((grey.tobytes(), width, height),symbols=[ZBarSymbol.QRCODE])
 #print(code_grey[0].data.decode('utf-8'))
-
 
 if code1 or code_blue or code_grey:
     print('Si Hay QR Code')
